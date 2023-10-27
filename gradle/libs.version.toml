@@ -1,0 +1,58 @@
+[versions]
+versionCode = "1"
+versionName = "1.0"
+minSdk = "26"
+targetSdk = "34"
+compileSdk = "34"
+androidGradlePlugin = "8.0.0"
+kotlin = "1.8.20"
+core-ktx = "1.12.0"
+junit = "4.13.2"
+androidx-test-ext-junit = "1.1.5"
+espresso-core = "3.5.1"
+lifecycle-runtime-ktx = "2.6.2"
+androidxLifecycle = "2.6.2"
+androidAppCompat = "1.6.1"
+hilt = "2.48"
+hiltPlugin = "2.48"
+room = "2.6.0"
+gson = "2.10.1"
+lottie = "6.0.0"
+materialGoogle= "1.5.0"
+constraintLayout = "2.1.4"
+kotlinxSerialization = "1.5.1"
+pluginSerialization = "1.8.10"
+mockk = "1.13.8"
+coroutines = "1.7.1"
+mockitoKotlin = "4.0.0"
+mockitoCore = "5.0.0"
+
+[libraries]
+google-material = { group = "com.google.android.material", name = "material", version.ref = "materialGoogle" }
+androidx-constraintLayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintLayout" }
+core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidAppCompat" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "androidxLifecycle" }
+androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "androidxLifecycle" }
+androidx-lifecycle-viewmodel-savedstate = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-savedstate", version.ref = "androidxLifecycle" }
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+gson-google = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+kotlinx-serialization = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
+unit-test-mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+unit-test-mockito-kotlin = { group = "org.mockito.kotlin", name = "mockito-kotlin", version.ref = "mockitoKotlin" }
+unit-test-mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockitoCore" }
+unit-test-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltPlugin" }
