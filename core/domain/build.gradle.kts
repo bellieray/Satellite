@@ -2,10 +2,13 @@
 plugins {
     id(libs.plugins.android.library.get().pluginId)
     id(libs.plugins.kotlin.android.get().pluginId)
+    id(libs.plugins.dagger.hilt.get().pluginId)
+    id(libs.plugins.android.dagger.hilt.get().pluginId)
+    id(libs.plugins.android.kotlin.kapt.get().pluginId)
 }
 
 android {
-    namespace = "${libs.versions.namespace}.core.domain"
+    namespace = "com.ebelli.core.domain"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
@@ -14,7 +17,7 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
-
+    @Suppress("unstableapiusage")
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -25,17 +28,27 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
+    }
+    @Suppress("unstableapiusage")
+    buildFeatures{
+        viewBinding =true
+        dataBinding = true
     }
 }
 
 dependencies {
+    api(project(":core:data"))
     implementation(libs.core.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+    //hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
 }

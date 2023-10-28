@@ -13,9 +13,10 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:alpha="@{satellite.active ? 1.0 : 0.5,default = 0.5}"
+        android:alpha="@{satellite.active ? 1f : 0.5f}"
         android:background="@drawable/bg_light_cream_bordered_sunshine_yellow_with_radius_10dp"
         android:paddingVertical="@dimen/dimen_20">
 

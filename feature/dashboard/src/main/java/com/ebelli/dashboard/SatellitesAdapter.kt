@@ -18,7 +18,7 @@ class SatellitesAdapter :
             oldItem.id == newItem.id && oldItem.active == newItem.active
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : SatellitesViewHolder=
         SatellitesViewHolder(RowItemSatelliteBinding.inflate(LayoutInflater.from(parent.context),parent,false))
 
     override fun onBindViewHolder(holder: SatellitesViewHolder, position: Int) {
@@ -27,8 +27,8 @@ class SatellitesAdapter :
 
     inner class SatellitesViewHolder(private val binding: RowItemSatelliteBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(satellite: Satellite) {
-            binding.satellite = satellite
+        fun bind(satellite: Satellite)= with(binding){
+            this.satellite = satellite
         }
     }
 }
