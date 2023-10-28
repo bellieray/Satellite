@@ -1,0 +1,6 @@
+<resources>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="active">Active</string>
+    <string name="passive">Passive</string>
+    <string name="search">Search</string>
+</resources>

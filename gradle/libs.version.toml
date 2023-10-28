@@ -18,14 +18,16 @@ hiltPlugin = "2.48"
 room = "2.6.0"
 gson = "2.10.1"
 lottie = "6.0.0"
-materialGoogle= "1.5.0"
+materialGoogle = "1.5.0"
 constraintLayout = "2.1.4"
 kotlinxSerialization = "1.5.1"
-pluginSerialization = "1.8.10"
+pluginSerialization = "1.8.21"
 mockk = "1.13.8"
 coroutines = "1.7.1"
 mockitoKotlin = "4.0.0"
 mockitoCore = "5.0.0"
+namespace = "com.ebelli"
+recyclerview = "1.3.2"
 
 [libraries]
 google-material = { group = "com.google.android.material", name = "material", version.ref = "materialGoogle" }
@@ -50,9 +52,14 @@ unit-test-mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 unit-test-mockito-kotlin = { group = "org.mockito.kotlin", name = "mockito-kotlin", version.ref = "mockitoKotlin" }
 unit-test-mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockitoCore" }
 unit-test-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines" }
+coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
+androidx-recyclerview = {group = "androidx.recyclerview", name = "recyclerview", version.ref="recyclerview"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
 android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltPlugin" }
+serialization = { id = "plugin.serialization", version.ref = "pluginSerialization" }
+android-dagger-hilt = {id = "dagger.hilt.android.plugin"}
+android-kotlin-kapt = {id = "kotlin-kapt"}

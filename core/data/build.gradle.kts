@@ -3,18 +3,18 @@
 plugins {
     id(libs.plugins.android.library.get().pluginId)
     id(libs.plugins.kotlin.android.get().pluginId)
+    kotlin(libs.plugins.serialization.get().pluginId) version "${libs.plugins.serialization.get().version}"
     id(libs.plugins.dagger.hilt.get().pluginId)
     id(libs.plugins.android.dagger.hilt.get().pluginId)
     id(libs.plugins.android.kotlin.kapt.get().pluginId)
 }
 
 android {
-    namespace = "com.ebelli.dashboard"
+    namespace = "${libs.versions.namespace}.core.data"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
         minSdk = libs.versions.minSdk.get().toInt()
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -35,21 +35,24 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures{
-        viewBinding =true
-        dataBinding = true
-    }
 }
 
 dependencies {
-    api(project(":core:data"))
+    api(project(":core:common"))
+    implementation(project(":core:asset"))
     implementation(libs.core.ktx)
-    implementation(libs.androidx.constraintLayout)
-    implementation(libs.google.material)
     implementation(libs.androidx.appcompat)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+    //serialization
+    implementation(libs.kotlinx.serialization)
+
+    //room
+    implementation(libs.room.runtime)
+    kapt(libs.room.compiler)
+    implementation(libs.room.ktx)
 
     //hilt
     implementation(libs.hilt.android)

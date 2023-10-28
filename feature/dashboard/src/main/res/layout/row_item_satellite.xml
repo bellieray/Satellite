@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="satellite"
+            type="com.ebelli.core.data.model.Satellite" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:alpha="@{satellite.active ? 1.0 : 0.5,default = 0.5}"
+        android:background="@drawable/bg_light_cream_bordered_sunshine_yellow_with_radius_10dp"
+        android:paddingVertical="@dimen/dimen_20">
+
+        <View
+            android:id="@+id/v_row_satellite"
+            android:layout_width="@dimen/dimen_24"
+            android:layout_height="@dimen/dimen_24"
+            android:background="@{satellite.active ? @drawable/bg_oval_green : @drawable/bg_oval_red, default= @drawable/bg_oval_green}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_row_satellite_name"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_row_satellite_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_30"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="@{satellite.name}"
+            android:textColor="@color/slate_gray"
+            android:textSize="@dimen/font_size_18"
+            app:layout_constraintBottom_toTopOf="@id/tv_row_satellite_active"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/v_row_satellite"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Dragon-1" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_row_satellite_active"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@{satellite.active ? @string/active : @string/passive}"
+            android:textColor="@color/slate_gray"
+            android:textSize="@dimen/font_size_16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/tv_row_satellite_name"
+            app:layout_constraintStart_toStartOf="@id/tv_row_satellite_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_row_satellite_name"
+            tools:text="Active" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

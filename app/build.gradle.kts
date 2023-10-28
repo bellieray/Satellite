@@ -1,6 +1,11 @@
+@file:Suppress("DSL_SCOPE_VIOLATION")
+
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id(libs.plugins.android.application.get().pluginId)
+    id(libs.plugins.kotlin.android.get().pluginId)
+    id(libs.plugins.dagger.hilt.get().pluginId)
+    id(libs.plugins.android.dagger.hilt.get().pluginId)
+    id(libs.plugins.android.kotlin.kapt.get().pluginId)
 }
 
 android {
@@ -43,4 +48,8 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+    //hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
 }
