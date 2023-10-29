@@ -2,9 +2,11 @@ package com.ebelli.dashboard
 
 import android.view.KeyEvent
 import android.view.inputmethod.EditorInfo
+import androidx.core.os.bundleOf
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.ebelli.core.common.base.BaseFragment
 import com.ebelli.core.common.decoration.BaseVerticalDividerItemDecoration
 import com.ebelli.core.common.textChanges
@@ -19,12 +21,13 @@ import kotlinx.coroutines.launch
 
 private const val MIN_TXT_LENGTH_FOR_SUGGESTION = 2
 private const val SEARCH_QUERY_TIME_MILLIS = 500L
+
 @OptIn(FlowPreview::class)
 @AndroidEntryPoint
 class SatellitesFragment :
     BaseFragment<FragmentSatellitesBinding, SatellitesViewModel>(R.layout.fragment_satellites) {
     override fun getViewModelClass(): Class<SatellitesViewModel> = SatellitesViewModel::class.java
-    private val satellitesAdapter: SatellitesAdapter by lazy { SatellitesAdapter() }
+    private val satellitesAdapter: SatellitesAdapter by lazy { SatellitesAdapter(::navigateToDetail) }
     override fun initObserver() {
         lifecycleScope.launch {
             viewModel.state
@@ -106,5 +109,9 @@ class SatellitesFragment :
                 viewModel.clearSatellites()
             }
         }
+    }
+
+    private fun navigateToDetail(id: Int) {
+        findNavController().navigate(R.id.home_to_detail, bundleOf("satelliteId" to id))
     }
 }

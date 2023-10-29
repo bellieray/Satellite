@@ -7,7 +7,7 @@
 
         <variable
             name="satellite"
-            type="com.ebelli.core.data.model.Satellite" />
+            type="com.ebelli.core.model.model.Satellite" />
 
         <import type="android.view.View" />
     </data>

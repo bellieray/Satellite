@@ -39,6 +39,7 @@ android {
 }
 
 dependencies {
+    api(project(":core:database"))
     api(project(":core:common"))
     implementation(project(":core:asset"))
     implementation(libs.core.ktx)

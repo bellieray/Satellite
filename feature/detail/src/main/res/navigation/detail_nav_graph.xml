@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/detail_nav_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/detail_nav_graph"
+    app:startDestination="@+id/satelliteDetailFragment">
+    <fragment
+        android:id="@+id/satelliteDetailFragment"
+        android:name="com.ebelli.detail.SatelliteDetailFragment"
+        android:label="SatelliteDetailFragment">
+    </fragment>
 </navigation>

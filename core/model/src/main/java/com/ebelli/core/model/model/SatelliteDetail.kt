@@ -8,10 +8,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-@Entity(tableName = "satellite_detail")
 data class SatelliteDetail(
-
-    @PrimaryKey(autoGenerate = true)
     val id: Int,
     @SerialName(COST_PER_LAUNCH)
     val costPerLaunch: Long?,

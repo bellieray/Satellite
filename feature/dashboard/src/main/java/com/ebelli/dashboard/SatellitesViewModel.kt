@@ -5,7 +5,7 @@ import com.ebelli.core.common.Result
 import com.ebelli.core.common.base.BaseViewModel
 import com.ebelli.core.common.base.IEffect
 import com.ebelli.core.common.base.IState
-import com.ebelli.core.data.model.Satellite
+import com.ebelli.core.model.model.Satellite
 import com.ebelli.core.domain.usecase.satellite.GetSatellitesUseCase
 import com.ebelli.core.domain.usecase.search.SearchSatellitesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel

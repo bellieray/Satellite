@@ -3,6 +3,7 @@
 plugins {
     id(libs.plugins.android.library.get().pluginId)
     id(libs.plugins.kotlin.android.get().pluginId)
+    id(libs.plugins.android.kotlin.kapt.get().pluginId)
 }
 
 android {
@@ -42,6 +43,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":core:asset"))
     implementation(libs.core.ktx)
     testImplementation(libs.junit)
     implementation(libs.lifecycle.runtime.ktx)
@@ -55,4 +57,7 @@ dependencies {
     //viewmodel
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
+
+    //serialization
+    implementation(libs.kotlinx.serialization)
 }

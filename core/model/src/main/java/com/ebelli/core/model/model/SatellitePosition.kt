@@ -2,7 +2,7 @@ package com.ebelli.core.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import kotlinx.serialization.SerialName
+import com.ebelli.core.model.model.Position
 import kotlinx.serialization.Serializable
 
 @Serializable

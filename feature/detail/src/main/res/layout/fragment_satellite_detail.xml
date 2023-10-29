@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="satelliteDetail"
+            type="com.ebelli.core.model.model.SatelliteDetailDto" />
+
+        <variable
+            name="isLoading"
+            type="Boolean" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SatelliteDetailFragment">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_satellite_detail_back"
+            android:layout_width="@dimen/dimen_48"
+            android:layout_height="@dimen/dimen_48"
+            android:layout_marginStart="@dimen/dimen_30"
+            android:layout_marginTop="@dimen/dimen_30"
+            android:src="@drawable/ic_arrow_back"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_satellite_detail_"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="@{satelliteDetail.satelliteName}"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/font_size_24sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_satellite_detail_first_flight"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Starship-1" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_satellite_detail_first_flight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:fontFamily="sans-serif-medium"
+            android:text="@{satelliteDetail.firstFlight}"
+            android:textColor="@color/slate_gray"
+            android:textSize="@dimen/font_size_16"
+            app:layout_constraintBottom_toTopOf="@+id/tv_satellite_detail_height_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_satellite_detail_"
+            tools:text="01.12.2012" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_satellite_detail_height_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_50"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/height_mass_title"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/font_size_16"
+            app:layout_constraintBottom_toTopOf="@+id/tv_satellite_detail_cost_title"
+            app:layout_constraintEnd_toStartOf="@+id/tv_satellite_detail_height_value"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_satellite_detail_first_flight"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_satellite_detail_height_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="@{@string/height_mass_ratio(String.valueOf(satelliteDetail.height),String.valueOf(satelliteDetail.mass))}"
+            android:textColor="@color/slate_gray"
+            android:textSize="@dimen/font_size_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tv_satellite_detail_height_title"
+            app:layout_constraintTop_toTopOf="@id/tv_satellite_detail_height_title"
+            tools:layout_editor_absoluteY="54dp"
+            tools:text="110/350000" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_satellite_detail_cost_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/cost_title"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/font_size_16"
+            app:layout_constraintBottom_toTopOf="@+id/tv_satellite_detail_position_title"
+            app:layout_constraintEnd_toStartOf="@+id/tv_satellite_detail_cost_value"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_satellite_detail_height_title" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_satellite_detail_cost_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/slate_gray"
+            android:textSize="@dimen/font_size_16"
+            app:formattedLongWithDots="@{satelliteDetail.costPerLaunch}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tv_satellite_detail_cost_title"
+            app:layout_constraintTop_toTopOf="@id/tv_satellite_detail_cost_title"
+            tools:layout_editor_absoluteY="54dp"
+            tools:text="8.3000.000" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_satellite_detail_position_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/last_position_title"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/font_size_16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_satellite_detail_position_value"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_satellite_detail_cost_title" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_satellite_detail_position_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="@{@string/last_position(String.valueOf(satelliteDetail.position.posX),String.valueOf(satelliteDetail.position.posY))}"
+            android:textColor="@color/slate_gray"
+            android:textSize="@dimen/font_size_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tv_satellite_detail_position_title"
+            app:layout_constraintTop_toTopOf="@id/tv_satellite_detail_position_title"
+            tools:layout_editor_absoluteY="54dp"
+            tools:text="(0.86556655, 0.525252226)" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:visibility="@{isLoading ? View.VISIBLE : View.GONE,default=gone}">
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                app:indicatorColor="?colorAccent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:trackThickness="4dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

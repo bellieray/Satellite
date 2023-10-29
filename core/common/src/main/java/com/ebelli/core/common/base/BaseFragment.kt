@@ -43,7 +43,9 @@ abstract class BaseFragment<VB : ViewDataBinding, VM : ViewModel>(@LayoutRes pro
     }
 
     fun notify(error: Exception?){
-        Toast.makeText(requireContext(),error?.message,Toast.LENGTH_SHORT).show()
+        error?.let{
+            Toast.makeText(this.requireActivity().applicationContext,error.message,Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onDestroyView() {

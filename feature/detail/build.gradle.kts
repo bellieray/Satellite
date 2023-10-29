@@ -6,6 +6,7 @@ plugins {
     id(libs.plugins.dagger.hilt.get().pluginId)
     id(libs.plugins.android.dagger.hilt.get().pluginId)
     id(libs.plugins.android.kotlin.kapt.get().pluginId)
+    id(libs.plugins.kotlin.safeArgs.get().pluginId)
 }
 
 android {

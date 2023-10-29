@@ -28,6 +28,7 @@ mockitoKotlin = "4.0.0"
 mockitoCore = "5.0.0"
 namespace = "com.ebelli"
 recyclerview = "1.3.2"
+safeArgs = "2.5.3"
 
 [libraries]
 google-material = { group = "com.google.android.material", name = "material", version.ref = "materialGoogle" }
@@ -65,3 +66,5 @@ dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltPlugin
 serialization = { id = "plugin.serialization", version.ref = "pluginSerialization" }
 android-dagger-hilt = {id = "dagger.hilt.android.plugin"}
 android-kotlin-kapt = {id = "kotlin-kapt"}
+kotlin-safeArgs = {id = "androidx.navigation.safeargs.kotlin"}
+android-safeArgs = { id = "androidx.navigation.safeargs", version.ref = "safeArgs" }

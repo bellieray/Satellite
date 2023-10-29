@@ -1,6 +1,8 @@
 package com.ebelli.core.domain.di
 
 import com.ebelli.core.data.repository.SatelliteRepository
+import com.ebelli.core.domain.usecase.detail.GetSatelliteDetailUseCase
+import com.ebelli.core.domain.usecase.detail.GetSatelliteDetailUseCaseImpl
 import com.ebelli.core.domain.usecase.satellite.GetSatelliteUseCaseImpl
 import com.ebelli.core.domain.usecase.satellite.GetSatellitesUseCase
 import com.ebelli.core.domain.usecase.search.SearchSatellitesUseCase
@@ -23,4 +25,9 @@ object UseCaseModule {
     @Singleton
     fun provideSearchSatellitesUseCase(satelliteRepository: SatelliteRepository): SearchSatellitesUseCase =
         SearchSatellitesUseCaseImpl(satelliteRepository)
+
+    @Provides
+    @Singleton
+    fun provideGetDetailSatellitesUseCase(satelliteRepository: SatelliteRepository): GetSatelliteDetailUseCase =
+        GetSatelliteDetailUseCaseImpl(satelliteRepository)
 }

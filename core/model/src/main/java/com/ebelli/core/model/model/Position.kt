@@ -1,4 +1,4 @@
-package com.ebelli.core.data.model
+package com.ebelli.core.model.model
 
 import kotlinx.serialization.Serializable
 
