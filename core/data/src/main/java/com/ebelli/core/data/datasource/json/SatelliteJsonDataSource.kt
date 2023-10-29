@@ -4,4 +4,5 @@ import com.ebelli.core.data.model.Satellite
 
 interface SatelliteJsonDataSource {
     suspend fun getSatellites(): List<Satellite>?
+    suspend fun searchSatellites(query: String) : List<Satellite>?
 }

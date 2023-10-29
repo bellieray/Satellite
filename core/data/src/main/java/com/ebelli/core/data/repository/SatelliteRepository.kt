@@ -6,4 +6,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface SatelliteRepository {
     suspend fun getSatellites(): Flow<Result<List<Satellite>?>>
+    suspend fun searchSatellites(query: String): Flow<Result<List<Satellite>?>>
 }

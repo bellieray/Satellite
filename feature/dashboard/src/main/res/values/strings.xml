@@ -3,4 +3,5 @@
     <string name="active">Active</string>
     <string name="passive">Passive</string>
     <string name="search">Search</string>
+    <string name="there_is_no_data_to_show">There is no data to show</string>
 </resources>
