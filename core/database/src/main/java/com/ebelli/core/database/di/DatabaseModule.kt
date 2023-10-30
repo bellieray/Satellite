@@ -5,8 +5,6 @@ import androidx.room.Room
 import com.ebelli.core.database.SatellitesDatabase
 import com.ebelli.core.database.converter.SatelliteRoomTypeConverter
 import com.ebelli.core.database.dao.SatellitesDao
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -34,9 +32,5 @@ object DatabaseModule {
 
     @Provides
     @Singleton
-    fun provideConverter(gson: Gson): SatelliteRoomTypeConverter = SatelliteRoomTypeConverter(gson)
-
-    @Provides
-    @Singleton
-    fun provideGson() : Gson = GsonBuilder().create()
+    fun provideConverter(): SatelliteRoomTypeConverter = SatelliteRoomTypeConverter()
 }
