@@ -35,7 +35,7 @@ import java.io.IOException
         satelliteDetailViewModel = SatelliteDetailViewModel(
             getFakeSatelliteDetailUseCase,
             savedStateHandle = SavedStateHandle().apply {
-                set("id",1)
+                set("satelliteId",1)
             }
         )
     }
@@ -52,7 +52,6 @@ import java.io.IOException
             val job = launch {
                 satelliteDetailViewModel.state.value
             }
-            satelliteDetailViewModel.getSatelliteDetail(satelliteTestId)
             Mockito.verify(getFakeSatelliteDetailUseCase).invoke(satelliteTestId)
             assert(listOfEmittedResult.first() is SatelliteDetailState.Loading)
             job.cancel()
@@ -77,7 +76,6 @@ import java.io.IOException
             val job = launch {
                 satelliteDetailViewModel.state.toList(listOfEmittedResult)
             }
-            satelliteDetailViewModel.getSatelliteDetail(satelliteTestId)
             Mockito.verify(getFakeSatelliteDetailUseCase).invoke(satelliteTestId)
             assert(listOfEmittedResult[1] is SatelliteDetailState.Success)
             job.cancel()
@@ -101,7 +99,6 @@ import java.io.IOException
             val job = launch {
                 satelliteDetailViewModel.state.toList(listOfEmittedResult)
             }
-            satelliteDetailViewModel.getSatelliteDetail(satelliteTestId)
             Mockito.verify(getFakeSatelliteDetailUseCase).invoke(satelliteTestId)
             assert(listOfEmittedResult[1] is SatelliteDetailState.Error)
             job.cancel()
