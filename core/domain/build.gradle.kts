@@ -45,10 +45,14 @@ dependencies {
     api(project(":core:data"))
     implementation(libs.core.ktx)
     testImplementation(libs.junit)
+    testImplementation(libs.unit.test.truth)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
 
     //hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
+
+    //turbine
+    testImplementation(libs.unit.test.turbine)
 }
