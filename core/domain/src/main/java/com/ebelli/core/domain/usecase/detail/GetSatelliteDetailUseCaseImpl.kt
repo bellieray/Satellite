@@ -27,7 +27,12 @@ class GetSatelliteDetailUseCaseImpl @Inject constructor(private val satelliteRep
                                 positions.data
                             )
                         )
-                    } ?: Result.Success(detail.data as? SatelliteDetailDto)
+                    } ?: Result.Success(
+                        (detail.data as? SatelliteDetailDto)?.copy(
+                            satelliteName = satellite.data?.find { it.id == id }?.name,
+                            position = positions.data
+                        )
+                    )
                 }
 
                 (detail is Result.Error || positions is Result.Error || satellite is Result.Error) -> Result.Error(

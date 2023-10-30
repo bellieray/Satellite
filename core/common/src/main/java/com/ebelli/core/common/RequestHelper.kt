@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.onStart
 
-suspend fun <T> flowCall(request: suspend () -> T?): Flow<Result<T>> {
+ fun <T> flowCall(request: suspend () -> T?): Flow<Result<T>> {
     return flow<Result<T>> {
         emit(Result.Success(request.invoke()))
     }.onStart { Result.Loading<T>() }.catch {
