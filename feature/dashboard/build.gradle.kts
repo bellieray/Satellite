@@ -53,6 +53,13 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     kapt("com.android.databinding:compiler:3.1.4")
+    testImplementation(libs.junit)
+    //mockito
+    testImplementation(libs.unit.test.mockk)
+    testImplementation(libs.unit.test.mockito.kotlin)
+    testImplementation(libs.unit.test.mockito.core)
+    //coroutines test
+    testImplementation(libs.unit.test.coroutines)
 
     //hilt
     implementation(libs.hilt.android)
