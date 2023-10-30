@@ -26,7 +26,7 @@ class SatelliteDetailViewModel @Inject constructor(
         }
     }
 
-    private fun getSatelliteDetail(id: Int) {
+     fun getSatelliteDetail(id: Int) {
         viewModelScope.launch {
             getSatelliteDetailUseCase.invoke(id).collect { result ->
                 when (result) {

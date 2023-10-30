@@ -39,8 +39,8 @@ class GetSatelliteDetailUseCaseImpl @Inject constructor(private val satelliteRep
                     detail?.error ?: positions.error ?: satellite.error
                 )
 
-                (detail is Result.Loading) -> Result.Loading()
-                else -> Result.Loading()
+                (detail is Result.Loading) -> Result.Loading
+                else -> Result.Loading
             }
         }.collect {
             emit(it)
