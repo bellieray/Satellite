@@ -18,6 +18,7 @@ android {
         consumerProguardFiles("consumer-rules.pro")
     }
 
+    @Suppress("unstableapiusage")
     buildTypes {
         release {
             isMinifyEnabled = false

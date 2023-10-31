@@ -3,7 +3,6 @@ package com.ebelli.dashboard
 import androidx.lifecycle.viewModelScope
 import com.ebelli.core.common.Result
 import com.ebelli.core.common.base.BaseViewModel
-import com.ebelli.core.common.base.IEffect
 import com.ebelli.core.common.base.IState
 import com.ebelli.core.model.model.Satellite
 import com.ebelli.core.domain.usecase.satellite.GetSatellitesUseCase
@@ -17,7 +16,7 @@ class SatellitesViewModel @Inject constructor(
     private val getSatellitesUseCase: GetSatellitesUseCase,
     private val searchSatellitesUseCase: SearchSatellitesUseCase
 ) :
-    BaseViewModel<SatellitesState, IEffect>() {
+    BaseViewModel<SatellitesState>() {
     override fun setInitialState(): SatellitesState = SatellitesState.Loading
     init {
         fetchSatellites()

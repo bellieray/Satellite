@@ -52,7 +52,6 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
-    kapt("com.android.databinding:compiler:3.1.4")
     testImplementation(libs.junit)
     //mockito
     testImplementation(libs.unit.test.mockk)

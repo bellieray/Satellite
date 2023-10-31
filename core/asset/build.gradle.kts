@@ -3,8 +3,8 @@ plugins {
     id(libs.plugins.android.library.get().pluginId)
     id(libs.plugins.kotlin.android.get().pluginId)
     id(libs.plugins.dagger.hilt.get().pluginId)
-    id("dagger.hilt.android.plugin")
-    id("kotlin-kapt")
+    id(libs.plugins.android.dagger.hilt.get().pluginId)
+    id(libs.plugins.android.kotlin.kapt.get().pluginId)
     kotlin(libs.plugins.serialization.get().pluginId) version "${libs.plugins.serialization.get().version}"
 
 }

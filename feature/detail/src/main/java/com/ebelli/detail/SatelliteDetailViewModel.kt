@@ -4,7 +4,6 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import com.ebelli.core.common.Result
 import com.ebelli.core.common.base.BaseViewModel
-import com.ebelli.core.common.base.IEffect
 import com.ebelli.core.common.base.IState
 import com.ebelli.core.model.model.SatelliteDetailDto
 import com.ebelli.core.domain.usecase.detail.GetSatelliteDetailUseCase
@@ -17,7 +16,7 @@ class SatelliteDetailViewModel @Inject constructor(
     private val getSatelliteDetailUseCase: GetSatelliteDetailUseCase,
     savedStateHandle: SavedStateHandle
 ) :
-    BaseViewModel<SatelliteDetailState, IEffect>() {
+    BaseViewModel<SatelliteDetailState>() {
     override fun setInitialState(): SatelliteDetailState = SatelliteDetailState.Loading
 
     init {
@@ -26,7 +25,7 @@ class SatelliteDetailViewModel @Inject constructor(
         }
     }
 
-     fun getSatelliteDetail(id: Int) {
+     private fun getSatelliteDetail(id: Int) {
         viewModelScope.launch {
             getSatelliteDetailUseCase.invoke(id).collect { result ->
                 when (result) {
